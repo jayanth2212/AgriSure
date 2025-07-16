@@ -1,0 +1,60 @@
+{
+  "name": "ai-blockchain-crop-insurance",
+  "version": "1.0.0",
+  "description": "AI + Blockchain Crop Insurance System with Advanced Fraud Detection",
+  "main": "backend/app.js",
+  "scripts": {
+    "start": "node backend/app.js",
+    "dev": "nodemon backend/app.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "npm run build:contracts && npm run build:frontend",
+    "build:contracts": "cd blockchain && npx hardhat compile",
+    "build:frontend": "cd frontend && npm run build",
+    "deploy:contracts": "cd blockchain && npx hardhat run scripts/deploy.js --network polygon",
+    "fraud:test": "python ai-models/test_fraud_detection.py",
+    "setup": "npm install && cd blockchain && npm install && cd ../frontend && npm install && cd ../mobile && npm install"
+  },
+  "keywords": [
+    "blockchain",
+    "ai",
+    "crop-insurance",
+    "fraud-detection",
+    "ethereum",
+    "machine-learning"
+  ],
+  "author": "AI + Blockchain Crop Insurance Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "ethers": "^5.7.2",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.32.6",
+    "@tensorflow/tfjs-node": "^4.15.0",
+    "axios": "^1.6.2",
+    "mongoose": "^8.0.3",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.7",
+    "winston": "^3.11.0",
+    "dotenv": "^16.3.1",
+    "joi": "^17.11.0",
+    "compression": "^1.7.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "@types/node": "^20.10.4",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
